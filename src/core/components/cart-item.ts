@@ -1,4 +1,4 @@
-import Component from "../templates/component";
+import Component from '../templates/component';
 
 class CartItem extends Component {
   constructor(tagName: string, className: string) {

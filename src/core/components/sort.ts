@@ -1,23 +1,23 @@
-import Component from "../templates/component";
+import Component from '../templates/component';
 // import { getFilterValues } from "../getFilterValues";
 // import { data } from "../../assets/data/data";
 
 class Sort extends Component {
-  static Categories = ["category", "price", "color", "brand"];
+  static Categories = ['category', 'price', 'color', 'brand'];
 
   constructor(tagName: string, className: string) {
     super(tagName, className);
   }
 
   createSelect() {
-    const select = document.createElement("select");
-    select.classList.add("sort__select");
-    select.setAttribute("id", "sort");
-    select.setAttribute("name", "sort");
+    const select = document.createElement('select');
+    select.classList.add('sort__select');
+    select.setAttribute('id', 'sort');
+    select.setAttribute('name', 'sort');
 
     Sort.Categories.forEach((item) => {
-      const option = document.createElement("option");
-      option.setAttribute("value", item);
+      const option = document.createElement('option');
+      option.setAttribute('value', item);
       option.innerHTML = item.charAt(0).toUpperCase() + item.slice(1);
       select.append(option);
     });
