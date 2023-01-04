@@ -64,7 +64,6 @@ class Product {
     cardText.append(this.createField('amount', this.amount));
 
     this.container.append(cardText);
-
     return this.container;
   }
 }

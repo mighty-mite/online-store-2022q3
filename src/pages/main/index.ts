@@ -4,6 +4,7 @@ import Page from '../../core/templates/page';
 import Filters from '../../core/components/filters';
 import Goods from '../../core/components/goods';
 import Promo from '../../core/components/promo';
+import ProductList from '../../core/components/product-list';
 
 class MainPage extends Page {
   // eslint-disable-next-line no-useless-constructor
@@ -22,6 +23,12 @@ class MainPage extends Page {
 
     this.container.append(promo);
     this.container.append(wrapper);
+
+    const productListContainer: HTMLElement = goods.querySelector('.goods__wrapper')!;
+    console.log(productListContainer);
+    const cards = new ProductList(productListContainer);
+    cards.appendToContainer();
+
     return this.container;
   }
 }
