@@ -1,14 +1,17 @@
-import Page from "../../core/templates/page";
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
+import Page from '../../core/templates/page';
 
 class SingleProductPage extends Page {
+  // eslint-disable-next-line no-useless-constructor
   constructor(id: string, className: string) {
     super(id, className);
   }
 
   createImg(imgPath: string) {
-    const imageWrapper = this.createWrapper("single-product__img");
-    const img = document.createElement("img");
-    img.setAttribute("alt", "product-image");
+    const imageWrapper = this.createWrapper('single-product__img');
+    const img = document.createElement('img');
+    img.setAttribute('alt', 'product-image');
     img.src = `${imgPath}`;
 
     imageWrapper.append(img);
@@ -16,17 +19,17 @@ class SingleProductPage extends Page {
   }
 
   createInfo() {
-    const infoWrapper = this.createWrapper("single-product__info");
+    const infoWrapper = this.createWrapper('single-product__info');
 
-    const btnWrapper = this.createWrapper("single-product__cards");
+    const btnWrapper = this.createWrapper('single-product__cards');
 
-    const addToCartBtn = document.createElement("button");
-    addToCartBtn.classList.add("btn-reset", "add-card");
-    addToCartBtn.innerText = "Add to Cart";
+    const addToCartBtn = document.createElement('button');
+    addToCartBtn.classList.add('btn-reset', 'add-card');
+    addToCartBtn.innerText = 'Add to Cart';
 
-    const buyBtn = document.createElement("a");
-    buyBtn.classList.add("btn-reset", "buy-now");
-    buyBtn.innerText = "Buy Now";
+    const buyBtn = document.createElement('a');
+    buyBtn.classList.add('btn-reset', 'buy-now');
+    buyBtn.innerText = 'Buy Now';
 
     btnWrapper.append(addToCartBtn, buyBtn);
 
@@ -36,7 +39,7 @@ class SingleProductPage extends Page {
   }
 
   render() {
-    const wrapper = this.createWrapper("single-product__wrapper");
+    const wrapper = this.createWrapper('single-product__wrapper');
     wrapper.append(this.createInfo());
 
     this.container.append(wrapper);

@@ -1,22 +1,27 @@
-import Component from "../templates/component";
-import { data } from "../../assets/data/data";
-import { getMaxDataValue } from "../getFilterValues";
-import * as noUiSlider from "../../../node_modules/nouislider/dist/nouislider";
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
+import Component from '../templates/component';
+import { data } from '../../assets/data/data';
+import { getMaxDataValue } from '../getFilterValues';
+import * as noUiSlider from '../../../node_modules/nouislider/dist/nouislider';
 // import "nouislider/dist/nouislider.css";
 
 class RangePrice extends Component {
   inputFrom: HTMLInputElement;
+
   inputTo: HTMLInputElement;
+
   slider: noUiSlider.target;
+
   constructor(tagName: string, className: string) {
     super(tagName, className);
-    this.inputFrom = document.createElement("input");
-    this.inputTo = document.createElement("input");
-    this.slider = document.createElement("div");
+    this.inputFrom = document.createElement('input');
+    this.inputTo = document.createElement('input');
+    this.slider = document.createElement('div');
   }
 
   createSlider = () => {
-    this.slider.classList.add("range__slider");
+    this.slider.classList.add('range__slider');
 
     noUiSlider.create(this.slider, {
       start: [20, 80],
@@ -24,14 +29,14 @@ class RangePrice extends Component {
       connect: true,
       range: {
         min: 0,
-        max: Number(`${getMaxDataValue(data, "price")}`),
+        max: Number(`${getMaxDataValue(data, 'price')}`),
       },
       tooltips: [true, true],
       format: {
-        to: function (value) {
+        to(value) {
           return Math.round(Number(value));
         },
-        from: function (value) {
+        from(value) {
           return Math.round(Number(value));
         },
       },
@@ -41,22 +46,22 @@ class RangePrice extends Component {
   };
 
   createControls = () => {
-    const container = document.createElement("div");
-    container.classList.add("range__control");
+    const container = document.createElement('div');
+    container.classList.add('range__control');
 
-    this.inputFrom.classList.add("range__control-from");
-    this.inputFrom.setAttribute("type", "number");
-    this.inputFrom.setAttribute("id", "fromInput");
-    this.inputFrom.setAttribute("value", "20");
-    this.inputFrom.setAttribute("min", "0");
-    this.inputFrom.setAttribute("max", `${getMaxDataValue(data, "price")}`);
+    this.inputFrom.classList.add('range__control-from');
+    this.inputFrom.setAttribute('type', 'number');
+    this.inputFrom.setAttribute('id', 'fromInput');
+    this.inputFrom.setAttribute('value', '20');
+    this.inputFrom.setAttribute('min', '0');
+    this.inputFrom.setAttribute('max', `${getMaxDataValue(data, 'price')}`);
 
-    this.inputTo.classList.add("range__control-to");
-    this.inputTo.setAttribute("type", "number");
-    this.inputTo.setAttribute("id", "toInput");
-    this.inputTo.setAttribute("value", "80");
-    this.inputTo.setAttribute("min", "0");
-    this.inputTo.setAttribute("max", `${getMaxDataValue(data, "price")}`);
+    this.inputTo.classList.add('range__control-to');
+    this.inputTo.setAttribute('type', 'number');
+    this.inputTo.setAttribute('id', 'toInput');
+    this.inputTo.setAttribute('value', '80');
+    this.inputTo.setAttribute('min', '0');
+    this.inputTo.setAttribute('max', `${getMaxDataValue(data, 'price')}`);
 
     container.append(this.inputFrom, this.inputTo);
 
@@ -64,8 +69,8 @@ class RangePrice extends Component {
   };
 
   handleNoUiSlider() {
-    this.slider!.noUiSlider!.on("update", (values, handle) => {
-      let value = values[handle];
+    this.slider!.noUiSlider!.on('update', (values, handle) => {
+      const value = values[handle];
       if (handle) {
         (this.inputTo.value as unknown) = value;
       } else {

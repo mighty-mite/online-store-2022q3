@@ -1,38 +1,42 @@
-import Component from "../templates/component";
-import { getFilterValues } from "../getFilterValues";
-import { data } from "../../assets/data/data";
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
+import Component from '../templates/component';
+import { getFilterValues } from '../getFilterValues';
+import { data } from '../../assets/data/data';
 
 class Brand extends Component {
+  // eslint-disable-next-line no-useless-constructor
   constructor(tagName: string, className: string) {
     super(tagName, className);
   }
 
+  // eslint-disable-next-line class-methods-use-this
   createHeading() {
-    const heading = document.createElement("h2");
-    heading.classList.add("category__heading");
-    heading.innerHTML = "Brand";
+    const heading = document.createElement('h2');
+    heading.classList.add('category__heading');
+    heading.innerHTML = 'Brand';
     return heading;
   }
 
   createOptions() {
-    const categories = getFilterValues(data, "brand");
+    const categories = getFilterValues(data, 'brand');
 
     categories.forEach((item) => {
-      const li = document.createElement("li");
-      li.classList.add("brand__wrapper");
+      const li = document.createElement('li');
+      li.classList.add('brand__wrapper');
 
-      const input = document.createElement("input");
-      input.setAttribute("type", "checkbox");
-      input.classList.add("brand__option");
-      input.setAttribute("id", item);
+      const input = document.createElement('input');
+      input.setAttribute('type', 'checkbox');
+      input.classList.add('brand__option');
+      input.setAttribute('id', item);
 
-      const label = document.createElement("label");
-      label.setAttribute("for", item);
-      label.classList.add("brand__label");
+      const label = document.createElement('label');
+      label.setAttribute('for', item);
+      label.classList.add('brand__label');
       label.innerText = item.charAt(0).toUpperCase() + item.slice(1);
 
-      const amount = document.createElement("p");
-      amount.classList.add("brand__amount");
+      const amount = document.createElement('p');
+      amount.classList.add('brand__amount');
 
       li.append(input, label, amount);
       this.component.append(li);
