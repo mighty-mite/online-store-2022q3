@@ -36,7 +36,7 @@ class Total extends Component {
     return wrapper;
   }
 
-  // eslint-disable-next-line class-methods-use-this
+// eslint-disable-next-line class-methods-use-this
   createTotal() {
     const wrapper = document.createElement('div');
     wrapper.classList.add('total__bottom');

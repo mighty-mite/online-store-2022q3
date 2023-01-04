@@ -11,7 +11,7 @@ import CartPage from '../cart/cart';
 //   SingleProductPage = 'single-product-page',
 //   CartPage = 'cart-page',
 // }
-
+=======
 class App {
   private static container: HTMLElement = document.querySelector('.main')!;
   // private initialPage: MainPage;
@@ -26,6 +26,7 @@ class App {
     } else if (idPage === 'single-product-page') {
       page = new SingleProductPage(idPage, 'single-product__data');
     } else if ((idPage === 'cart-page')) {
+
       page = new CartPage(idPage, 'cart');
     }
     if (page) {
