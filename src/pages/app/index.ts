@@ -1,15 +1,16 @@
 // отвечает за рендер главной страницы и переход между страницами
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import Page from '../../core/templates/page';
 import MainPage from '../main/index';
 import SingleProductPage from '../single-product/single-product';
 import CartPage from '../cart/cart';
 
-export const enum PageIds {
-  MainPage = 'main-page',
-  SingleProductPage = 'single-product-page',
-  CartPage = 'cart-page',
-}
-
+// export const enum PageIds {
+//   MainPage = 'main-page',
+//   SingleProductPage = 'single-product-page',
+//   CartPage = 'cart-page',
+// }
 class App {
   private static container: HTMLElement = document.querySelector('.main')!;
   // private initialPage: MainPage;
@@ -19,11 +20,11 @@ class App {
 
     let page: Page | null = null;
 
-    if (idPage === PageIds.MainPage) {
+    if (idPage === 'main-page') {
       page = new MainPage(idPage, 'shop');
-    } else if (idPage === PageIds.SingleProductPage) {
+    } else if (idPage === 'single-product-page') {
       page = new SingleProductPage(idPage, 'single-product__data');
-    } else if ((idPage = PageIds.CartPage)) {
+    } else if ((idPage === 'cart-page')) {
       page = new CartPage(idPage, 'cart');
     }
     if (page) {
@@ -32,6 +33,7 @@ class App {
     }
   }
 
+  // eslint-disable-next-line class-methods-use-this
   private enableRouteChange() {
     window.addEventListener('hashchange', () => {
       const hash = window.location.hash.slice(1);
@@ -39,6 +41,7 @@ class App {
     });
   }
 
+  // eslint-disable-next-line no-useless-constructor
   constructor() {
     // this.initialPage = new MainPage("main-page");
   }

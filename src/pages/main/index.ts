@@ -1,9 +1,12 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import Page from '../../core/templates/page';
 import Filters from '../../core/components/filters';
 import Goods from '../../core/components/goods';
 import Promo from '../../core/components/promo';
 
 class MainPage extends Page {
+  // eslint-disable-next-line no-useless-constructor
   constructor(id: string, className: string) {
     super(id, className);
   }
