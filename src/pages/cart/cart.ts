@@ -1,8 +1,10 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import Total from '../../core/components/total';
 import Page from '../../core/templates/page';
 
-
 class CartPage extends Page {
+  // eslint-disable-next-line no-useless-constructor
   constructor(id: string, className: string) {
     super(id, className);
   }

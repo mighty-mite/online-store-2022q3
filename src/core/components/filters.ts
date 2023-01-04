@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import Component from '../templates/component';
 import Searchbar from './searchbar';
 import Category from './category';
@@ -6,6 +8,7 @@ import Price from './price';
 import Stock from './stock';
 
 class Filters extends Component {
+  // eslint-disable-next-line no-useless-constructor
   constructor(tagName: string, className: string) {
     super(tagName, className);
   }

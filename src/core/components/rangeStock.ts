@@ -1,8 +1,11 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import Component from '../templates/component';
 import { data } from '../../assets/data/data';
 import { getMaxDataValue } from '../getFilterValues';
 import * as noUiSlider from '../../../node_modules/nouislider/dist/nouislider';
-// import "nouislider/dist/nouislider.css";
+//import 'nouislider/dist/nouislider.css';
+//import "nouislider/dist/nouislider.css";
 
 class RangeStock extends Component {
   inputFrom: HTMLInputElement;

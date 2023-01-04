@@ -1,17 +1,22 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import Component from '../templates/component';
 import Sort from './sort';
 
 class Goods extends Component {
+  // eslint-disable-next-line no-useless-constructor
   constructor(tagName: string, className: string) {
     super(tagName, className);
   }
 
+  // eslint-disable-next-line class-methods-use-this
   createGoodsTopBar() {
     const wrapper = document.createElement('div');
     wrapper.classList.add('goods__top');
     return wrapper;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   createGoodsSort() {
     const goodsSort = document.createElement('div');
     goodsSort.classList.add('goods__top-left');
@@ -27,6 +32,7 @@ class Goods extends Component {
     return goodsSort;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   createResets() {
     const wrapper = document.createElement('div');
     wrapper.classList.add('goods__reset');
@@ -43,6 +49,7 @@ class Goods extends Component {
     return wrapper;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   createLayoutControls() {
     const wrapper = document.createElement('div');
     wrapper.classList.add('goods__top-right');
@@ -65,6 +72,7 @@ class Goods extends Component {
     return wrapper;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   createCardField() {
     const cardField = document.createElement('div');
     cardField.classList.add('goods__wrapper');

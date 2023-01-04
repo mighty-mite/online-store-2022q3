@@ -1,3 +1,5 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import { Data } from '../assets/data/data';
 
 export function getFilterValues(data: Data[], key: 'category' | 'brand') {

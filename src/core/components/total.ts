@@ -1,10 +1,14 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import Component from '../templates/component';
 
 class Total extends Component {
+  // eslint-disable-next-line no-useless-constructor
   constructor(tagName: string, className: string) {
     super(tagName, className);
   }
 
+  // eslint-disable-next-line class-methods-use-this
   createSubtotal() {
     const wrapper = document.createElement('div');
     wrapper.classList.add('total__sub');
@@ -18,6 +22,7 @@ class Total extends Component {
     return wrapper;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   createShipping() {
     const wrapper = document.createElement('div');
     wrapper.classList.add('total__shipping');
@@ -31,6 +36,7 @@ class Total extends Component {
     return wrapper;
   }
 
+// eslint-disable-next-line class-methods-use-this
   createTotal() {
     const wrapper = document.createElement('div');
     wrapper.classList.add('total__bottom');
@@ -44,6 +50,7 @@ class Total extends Component {
     return wrapper;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   createPromoInput() {
     const promo = document.createElement('input');
     promo.classList.add('total__promo');
@@ -51,6 +58,7 @@ class Total extends Component {
     return promo;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   createBuyBtn() {
     const buyBtn = document.createElement('button');
     buyBtn.classList.add('total__buy');
