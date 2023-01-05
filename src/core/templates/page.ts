@@ -11,12 +11,14 @@ abstract class Page {
     this.container.classList.add(className);
   }
 
+  // eslint-disable-next-line class-methods-use-this
   protected createWrapper(className: string) {
     const wrapper = document.createElement('div');
     wrapper.classList.add(className);
     return wrapper;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   protected createHeaderTitle(text: string) {
     const headerTitle = document.createElement('h1');
     headerTitle.innerText = text;
