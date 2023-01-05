@@ -13,11 +13,13 @@ export default class ProductList {
   constructor(container: HTMLElement) {
     this.container = container;
     this.productsAmount = data.length;
+    console.log(this.container);
   }
 
   public appendToContainer(): HTMLElement {
     for (let i = 0; i < this.productsAmount; i += 1) {
       this.card = new Product(
+        data[i].num,
         data[i].name,
         data[i].amount,
         data[i].brand,
