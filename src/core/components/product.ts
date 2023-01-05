@@ -3,7 +3,7 @@ class Product {
   private container: HTMLElement;
 
   constructor(
-    /*  private num: string, */
+    private num: string,
     private name: string,
     private amount: string,
     /*  private year: string, */
@@ -12,7 +12,7 @@ class Product {
     /* private size: string, */
     private price: string,
   ) {
-    /*  this.num = num; */
+    this.num = num;
     this.name = name;
     this.amount = amount;
     /*  this.year = year; */
@@ -50,10 +50,16 @@ class Product {
     return field;
   }
 
-  // private createImg() {
+  private createImg() {
+    const img = this.createNode('img', 'card__img');
+    img.setAttribute('src', `../src/assets/images/${this.num}.jpg`);
+    img.setAttribute('alt', this.name);
 
-  // }
+    return img;
+  }
+
   public buildCard(): HTMLElement {
+    this.container.append(this.createImg());
     const cardText = this.createNode('div', 'card__text');
     const cardHeading = this.createNode('h2', 'card__heading');
     cardHeading.innerText = this.name;

@@ -25,7 +25,6 @@ class MainPage extends Page {
     this.container.append(wrapper);
 
     const productListContainer: HTMLElement = goods.querySelector('.goods__wrapper')!;
-    console.log(productListContainer);
     const cards = new ProductList(productListContainer);
     cards.appendToContainer();
 

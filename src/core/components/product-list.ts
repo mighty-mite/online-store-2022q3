@@ -19,6 +19,7 @@ export default class ProductList {
   public appendToContainer(): HTMLElement {
     for (let i = 0; i < this.productsAmount; i += 1) {
       this.card = new Product(
+        data[i].num,
         data[i].name,
         data[i].amount,
         data[i].brand,
