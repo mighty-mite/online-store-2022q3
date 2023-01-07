@@ -59,7 +59,10 @@
 }
 
 .goods__wrapper.list-style {
-	display: block;
+	// display: block;
+  grid-template-columns: repeat(1, 1fr);
+  column-gap: 20px;
+  row-gap: 25px;
 }
 
 .goods__reset-btn,
