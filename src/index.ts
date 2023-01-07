@@ -7,23 +7,35 @@ import App from './pages/app/index';
 const app = new App();
 app.run();
 
+//Save Style on Local Storage
+const STATE = {
+  layoutStyle: localStorage.getItem('layoutStyle'),
+}
 //Change Layout Style
-const layoutStyleButtons = document.querySelector('.goods__top-right') as HTMLElement;
+const layoutStyleButtonsContainer = document.querySelector('.goods__top-right') as HTMLElement;
+const layoutStyleButtons = document.querySelectorAll('.goods__layout-button') as NodeListOf<Element>;
 const layoutItems = document.querySelectorAll('.card');
-layoutStyleButtons?.addEventListener('click', changeLayoutStyle);
+const layoutWrapper = document.querySelector('.goods__wrapper')! as HTMLElement;
+
+layoutStyleButtonsContainer?.addEventListener('click', changeLayoutStyle);
 
 function changeLayoutStyle(event: Event) {
   const changeLayoutButtons = document.querySelectorAll('.goods__layout-button');
-  const eventTarget: HTMLElement = event.target as HTMLElement;
-  const layoutWrapper = document.querySelector('.goods__wrapper')! as HTMLElement; 
+  const eventTarget: HTMLElement = event.target as HTMLElement; 
 
   if(eventTarget?.classList.contains('goods__layout-button--tile')) {
+
+    localStorage.setItem('layoutStyle', '');
+
     layoutWrapper.classList.remove('list-style'); 
     removeStyle(changeLayoutButtons, 'chosen');
     addStyle(eventTarget, 'chosen');
     removeStyle(layoutItems, 'list-style');
   }
   if(eventTarget?.classList.contains('goods__layout-button--list')) {
+
+    localStorage.setItem('layoutStyle', 'list-style');
+
     addStyle(layoutWrapper, 'list-style')
     addStyle(layoutItems, 'list-style')
     removeStyle(changeLayoutButtons, 'chosen');
@@ -50,3 +62,18 @@ function addStyle(element: NodeListOf<Element> | HTMLElement, style: string): vo
   item.classList.add(style);
  })
 }
+
+function setSavedState() {
+  if(STATE.layoutStyle) {
+    layoutWrapper.classList.add(STATE.layoutStyle);
+    addStyle(layoutItems, STATE.layoutStyle);
+    switch (STATE.layoutStyle) {
+      case 'list-style': {
+        removeStyle(layoutStyleButtons, 'chosen');
+        addStyle(layoutStyleButtons[1] as HTMLElement, 'chosen');
+        break;
+      }
+    }
+  }
+}
+setSavedState()
