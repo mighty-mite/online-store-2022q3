@@ -21,7 +21,7 @@ class Product {
     /*  this.size = size; */
     this.price = price;
 
-    this.container = this.createNode('a', ['card', 'list-style']);
+    this.container = this.createNode('a', ['card']);
   }
 
   private createNode(tagName: string, className: string | string[]): HTMLElement {
