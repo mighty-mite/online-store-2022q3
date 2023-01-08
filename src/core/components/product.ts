@@ -21,7 +21,7 @@ class Product {
     /*  this.size = size; */
     this.price = price;
 
-    this.container = this.createNode('a', ['card', 'list-style']);
+    this.container = this.createNode('a', ['card']);
   }
 
   private createNode(tagName: string, className: string | string[]): HTMLElement {
@@ -68,6 +68,8 @@ class Product {
     cardText.append(this.createField('price', this.price));
     cardText.append(this.createField('color', this.color));
     cardText.append(this.createField('amount', this.amount));
+
+    this.container.setAttribute('href', '#single-product-page');
 
     this.container.append(cardText);
     return this.container;
