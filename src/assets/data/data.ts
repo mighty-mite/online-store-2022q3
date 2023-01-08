@@ -105,7 +105,7 @@ export const data: Data[] = [
     color: 'green',
     favorite: false,
     category: 'decks',
-    price: '',
+    price: '29',
     description:
       'Fucking Awesome ANTI-HERO AH BRD PFANNER GUEST GRIMPLE Skateboard Deck',
   },
