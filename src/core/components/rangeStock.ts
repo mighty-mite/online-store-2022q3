@@ -23,6 +23,7 @@ class RangeStock extends Component {
 
   createSlider = () => {
     this.slider.classList.add('range__slider', 'range__slider--amount');
+    this.slider.setAttribute('id', 'amountSlider');
 
     noUiSlider.create(this.slider, {
       start: [3, 8],

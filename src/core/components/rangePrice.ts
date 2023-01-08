@@ -22,6 +22,7 @@ class RangePrice extends Component {
 
   createSlider = () => {
     this.slider.classList.add('range__slider');
+    this.slider.setAttribute('id', 'priceSlider');
 
     noUiSlider.create(this.slider, {
       start: [20, 80],
@@ -51,14 +52,14 @@ class RangePrice extends Component {
 
     this.inputFrom.classList.add('range__control-from');
     this.inputFrom.setAttribute('type', 'number');
-    this.inputFrom.setAttribute('id', 'fromInput');
+    this.inputFrom.setAttribute('id', 'minPriceInput');
     this.inputFrom.setAttribute('value', '20');
     this.inputFrom.setAttribute('min', '0');
     this.inputFrom.setAttribute('max', `${getMaxDataValue(data, 'price')}`);
 
     this.inputTo.classList.add('range__control-to');
     this.inputTo.setAttribute('type', 'number');
-    this.inputTo.setAttribute('id', 'toInput');
+    this.inputTo.setAttribute('id', 'maxPriceInput');
     this.inputTo.setAttribute('value', '80');
     this.inputTo.setAttribute('min', '0');
     this.inputTo.setAttribute('max', `${getMaxDataValue(data, 'price')}`);

@@ -2,20 +2,22 @@
 /* eslint-disable import/no-unresolved */
 import { data } from '../../assets/data/data';
 import Product from './product';
+// import Filter from '../filter';
 
 export default class ProductList {
-  private container: HTMLElement;
+  // private container: HTMLElement;
 
   private productsAmount: number;
 
   private card!: Product;
 
-  constructor(container: HTMLElement) {
-    this.container = container;
+  constructor() {
+    // this.container = container;
     this.productsAmount = data.length;
   }
 
-  public appendToContainer(): HTMLElement {
+  public appendToContainer(): Product[] {
+    const res = [];
     for (let i = 0; i < this.productsAmount; i += 1) {
       this.card = new Product(
         data[i].num,
@@ -25,9 +27,10 @@ export default class ProductList {
         data[i].color,
         data[i].price,
       );
-      this.container.append(this.card.buildCard());
+      res.push(this.card);
+      // this.container.append(this.card.buildCard());
     }
-
-    return this.container;
+    return res;
+    // return this.container;
   }
 }

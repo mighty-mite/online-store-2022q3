@@ -69,6 +69,8 @@ class Product {
     cardText.append(this.createField('color', this.color));
     cardText.append(this.createField('amount', this.amount));
 
+    this.container.setAttribute('href', '#single-product-page');
+
     this.container.append(cardText);
     return this.container;
   }
