@@ -61,6 +61,7 @@ class Filter {
     return res;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   filterAmount(min: number, max: number, cards: Data[]) {
     const res: Data[] = [];
 
