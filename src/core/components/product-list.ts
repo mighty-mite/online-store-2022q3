@@ -13,7 +13,6 @@ export default class ProductList {
   constructor(container: HTMLElement) {
     this.container = container;
     this.productsAmount = data.length;
-    console.log(this.container);
   }
 
   public appendToContainer(): HTMLElement {

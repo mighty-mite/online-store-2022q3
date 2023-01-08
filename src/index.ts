@@ -77,3 +77,9 @@ function setSavedState() {
   }
 }
 setSavedState()
+
+const sortSelection = document.querySelector('.sort__select') as HTMLSelectElement;
+sortSelection?.addEventListener('change', (event) =>{
+  let eventTarget = event.target as HTMLSelectElement;
+  console.log(eventTarget.options[eventTarget.selectedIndex].value);
+})
