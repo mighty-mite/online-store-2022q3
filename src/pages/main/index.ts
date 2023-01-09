@@ -9,6 +9,8 @@ import Filter from '../../core/filter';
 import { data } from '../../assets/data/data';
 import Product from '../../core/components/product';
 import * as noUiSlider from '../../../node_modules/nouislider/dist/nouislider';
+import Sorting from '../../core/sorting';
+//import Sort from '../../core/components/sort';
 
 class MainPage extends Page {
   // eslint-disable-next-line no-useless-constructor
@@ -17,6 +19,8 @@ class MainPage extends Page {
   }
 
   public filter = new Filter();
+  public sorting = new Sorting();
+//  public sortElem = new Sort();
 
   public obj = {
     element: false,
@@ -30,6 +34,7 @@ class MainPage extends Page {
     maxPrice: 80,
     minAmount: 3,
     maxAmount: 8,
+    sortType: 'Price ASC'
   };
 
   showCards(wrapper: HTMLElement) {
@@ -41,11 +46,12 @@ class MainPage extends Page {
     const arr2 = this.filter.filterCategories(this.obj.decks, this.obj.wheels, this.obj.trucks, this.obj.helmets, arr1);
     const arr3 = this.filter.filterPrice(this.obj.minPrice, this.obj.maxPrice, arr2);
     const arr4 = this.filter.filterAmount(this.obj.minAmount, this.obj.maxAmount, arr3);
-    if (arr4.length === 0) {
+    const arr5 = this.sorting.sort(arr4, this.obj.sortType);
+    if (arr5.length === 0) {
       wrapper.append('Sorry, no such item!');
     }
-    arr4.forEach((el) => {
-      const card = new Product(el.num, el.name, el.amount, el.brand, el.color, el.price);
+    arr5.forEach((el) => {
+      const card = new Product(el.num, el.name, el.amount, el.brand, el.color, el.price, el.rating);
       wrapper.append(card.buildCard());
     });
   }
@@ -77,6 +83,8 @@ class MainPage extends Page {
     const priceSlider = filters.querySelector('#priceSlider') as noUiSlider.target;
     const amountSlider = filters.querySelector('#amountSlider') as noUiSlider.target;
     // const maxPriceInput = filters.querySelector('#maxPriceInput') as HTMLInputElement;
+
+    const sortSelection = wrapper.querySelector('.sort__select') as HTMLSelectElement;
 
     if (priceSlider.noUiSlider) {
       priceSlider.noUiSlider.on('update', (values) => {
@@ -132,6 +140,12 @@ class MainPage extends Page {
       this.obj.hero = (e.currentTarget! as HTMLInputElement).checked;
       this.showCards(productListContainer);
     });
+    
+    sortSelection?.addEventListener('change', (event) =>{
+      let eventTarget = event.target as HTMLSelectElement;
+      this.obj.sortType = eventTarget.options[eventTarget.selectedIndex].value;
+      this.showCards(productListContainer);
+    })
 
     return this.container;
   }

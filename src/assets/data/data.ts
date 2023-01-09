@@ -9,6 +9,7 @@ export type Data = {
   category: string;
   price: string;
   description: string;
+  rating: string,
 };
 
 export const data: Data[] = [
@@ -23,6 +24,7 @@ export const data: Data[] = [
     category: 'decks',
     price: '41',
     description: 'Fucking Awesome ELEMENT PEANUTS ROY X Skateboard Deck',
+    rating: '4.2',
   },
   {
     num: '2',
@@ -35,6 +37,7 @@ export const data: Data[] = [
     category: 'decks',
     price: '46',
     description: 'Fucking Awesome ELEMENT TIMBER ENTANGL Skateboard Deck',
+    rating: '4.3',
   },
   {
     num: '3',
@@ -47,6 +50,7 @@ export const data: Data[] = [
     category: 'decks',
     price: '54',
     description: 'Fucking Awesome ELEMENT TIMBER SKELETON Skateboard Deck',
+    rating: '4.4',
   },
   {
     num: '4',
@@ -59,6 +63,7 @@ export const data: Data[] = [
     category: 'decks',
     price: '85',
     description: 'Fucking Awesome ELEMENT TIMBER HIGH DR Skateboard Deck',
+    rating: '4.2',
   },
   {
     num: '5',
@@ -71,6 +76,7 @@ export const data: Data[] = [
     category: 'decks',
     price: '70',
     description: 'Fucking Awesome ANTI-HERO EVAN GRIMPLE Skateboard Deck',
+    rating: '4.5',
   },
   {
     num: '6',
@@ -83,6 +89,7 @@ export const data: Data[] = [
     category: 'decks',
     price: '79',
     description: 'Fucking Awesome ANTI-HERO CARDIEL BURR Skateboard Deck',
+    rating: '4.4',
   },
   {
     num: '7',
@@ -95,6 +102,7 @@ export const data: Data[] = [
     category: 'decks',
     price: '41',
     description: 'Fucking Awesome ANTI-HERO TRUJILLO MOTEL18 Skateboard Deck',
+    rating: '4.4',
   },
   {
     num: '8',
@@ -108,6 +116,7 @@ export const data: Data[] = [
     price: '29',
     description:
       'Fucking Awesome ANTI-HERO AH BRD PFANNER GUEST GRIMPLE Skateboard Deck',
+    rating: '4.5',
   },
   {
     num: '9',
@@ -121,6 +130,7 @@ export const data: Data[] = [
     price: '66',
     description:
       'Fucking Awesome ANTI-HERO PRICEPOINT WHEEL OF ANTIHERO Skateboard Deck',
+    rating: '4.6',
   },
   {
     num: '10',
@@ -133,6 +143,7 @@ export const data: Data[] = [
     category: 'decks',
     price: '57',
     description: 'Fucking Awesome ANTI-HERO BRD CLASSIC EAGLE Skateboard Deck',
+    rating: '4.5',
   },
   {
     num: '11',
@@ -145,6 +156,7 @@ export const data: Data[] = [
     category: 'decks',
     price: '31',
     description: 'Fucking Awesome TOY MACHINE NEW FISTS Skateboard Deck',
+    rating: '4.6',
   },
 
   {
@@ -158,6 +170,7 @@ export const data: Data[] = [
     category: 'decks',
     price: '58',
     description: 'Fucking Awesome TOY MACHINE CAT MONSTER Skateboard Deck',
+    rating: '4.5',
   },
   {
     num: '13',
@@ -171,6 +184,7 @@ export const data: Data[] = [
     price: '40',
     description:
       'Fucking Awesome TOY MACHINE VICE HELL MONSTER Skateboard Deck',
+      rating: '4.4',
   },
   {
     num: '14',
@@ -183,6 +197,7 @@ export const data: Data[] = [
     category: 'decks',
     price: '32',
     description: 'Fucking Awesome TOY MACHINE NO SCOOTER Skateboard Deck',
+    rating: '4.5',
   },
   {
     num: '15',
@@ -195,6 +210,7 @@ export const data: Data[] = [
     category: 'decks',
     price: '81',
     description: 'Fucking Awesome TOY MACHINE MONSTER MEDIUM Skateboard Deck',
+    rating: '4.6',
   },
   {
     num: '16',
@@ -207,6 +223,7 @@ export const data: Data[] = [
     category: 'decks',
     price: '67',
     description: 'Fucking Awesome ELEMENT TRAPPED WESTGATE Skateboard Deck',
+    rating: '4.6',
   },
   {
     num: '17',
@@ -219,6 +236,7 @@ export const data: Data[] = [
     category: 'decks',
     price: '54',
     description: 'Fucking Awesome ELEMENT TIMBER GARDEN S Skateboard Deck',
+    rating: '4.6',
   },
 
   {
@@ -232,6 +250,7 @@ export const data: Data[] = [
     category: 'decks',
     price: '75',
     description: 'Fucking Awesome ELEMENT SEAL Skateboard Deck',
+    rating: '4.4',
   },
   {
     num: '19',
@@ -244,6 +263,7 @@ export const data: Data[] = [
     category: 'decks',
     price: '42',
     description: 'Fucking Awesome ELEMENT GALAXY Skateboard Deck',
+    rating: '4.5',
   },
   {
     num: '20',
@@ -256,6 +276,7 @@ export const data: Data[] = [
     category: 'decks',
     price: '35',
     description: 'Fucking Awesome ELEMENT STAR WARS YODA Skateboard Deck',
+    rating: '4.8',
   },
   {
     num: '21',
@@ -268,6 +289,7 @@ export const data: Data[] = [
     category: 'decks',
     price: '36',
     description: 'Fucking Awesome ELEMENT SHADOW ETHAN Skateboard Deck',
+    rating: '4.5',
   },
   {
     num: '22',
@@ -281,7 +303,8 @@ export const data: Data[] = [
     price: '10',
     description:
       'Maximize your speed with ELEMENT SPECTRUM CRUISER skateboard wheels. This square lip designed wheel is built to optimize lock-ins and maximize stability on stalls and grinds. These wheels also feature a 99a durometer construction for grip on vert and predictable power slides when you want, with no flatspots, guaranteed',
-  },
+      rating: '4.8',
+    },
   {
     num: '23',
     name: 'TOY MACHINE BANDANA CRUISER SHAPE',
@@ -294,7 +317,8 @@ export const data: Data[] = [
     price: '10',
     description:
       'Maximize your speed with TOY MACHINE BANDANA CRUISER SHAPE skateboard wheels. This square lip designed wheel is built to optimize lock-ins and maximize stability on stalls and grinds. These wheels also feature a 99a durometer construction for grip on vert and predictable power slides when you want, with no flatspots, guaranteed',
-  },
+      rating: '4.5',
+    },
   {
     num: '24',
     name: 'TENSOR ALUM TRIPPY CHARACTER ROGERS',
@@ -307,7 +331,8 @@ export const data: Data[] = [
     price: '58',
     description:
       'All-new proprietary process strength at a molecular level the strongest cast truck ever made by Ace',
-  },
+      rating: '4.4',
+    },
   {
     num: '25',
     name: 'TENSOR ALUM CAMO',
@@ -320,7 +345,8 @@ export const data: Data[] = [
     price: '75',
     description:
       'All-new proprietary process strength at a molecular level the strongest cast truck ever made by Ace',
-  },
+      rating: '4.5',
+    },
 
   {
     num: '26',
@@ -334,7 +360,8 @@ export const data: Data[] = [
     price: '107',
     description:
       'MIPs technology: Motion Impact Protection system uses a internal low friction layer that allows the helmet to rotate. This adds protection for your brain during rotational impact',
-  },
+    rating: '4.8',
+    },
 
   {
     num: '27',
@@ -348,5 +375,6 @@ export const data: Data[] = [
     price: '92',
     description:
       'MIPs technology: Motion Impact Protection system uses a internal low friction layer that allows the helmet to rotate. This adds protection for your brain during rotational impact',
-  },
+    rating: '4.5',
+    },
 ];
