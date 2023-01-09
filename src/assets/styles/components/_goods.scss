@@ -53,13 +53,16 @@
 
 .goods__wrapper {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(5, 1fr);
 	column-gap: 40px;
 	row-gap: 45px;
 }
 
 .goods__wrapper.list-style {
-	display: block;
+	// display: block;
+  grid-template-columns: repeat(1, 1fr);
+  column-gap: 20px;
+  row-gap: 25px;
 }
 
 .goods__reset-btn,
@@ -89,7 +92,7 @@
 
 @media (max-width: 1670px) {
 	.goods__wrapper {
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(4, 1fr);
 	}
 }
 
