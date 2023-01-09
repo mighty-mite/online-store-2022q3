@@ -29,6 +29,13 @@ class Goods extends Component {
 
     goodsSort.append(text, sort);
 
+    const found = document.createElement('p');
+    found.classList.add('good-found')
+    const foundNum = document.createElement('span');
+    foundNum.classList.add('good-found__num')
+    found.innerHTML = 'Found: ';
+    found.append(foundNum);
+    goodsSort.append(found)
     return goodsSort;
   }
 
@@ -80,12 +87,14 @@ class Goods extends Component {
   }
 
   render() {
+
     const topBar = this.createGoodsTopBar();
     const cardField = this.createCardField();
 
     topBar.append(this.createGoodsSort());
     topBar.append(this.createResets());
     topBar.append(this.createLayoutControls());
+  
 
     this.component.append(topBar);
     this.component.append(cardField);

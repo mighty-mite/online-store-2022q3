@@ -22,6 +22,7 @@ class MainPage extends Page {
   public filter = new Filter();
   public sorting = new Sorting();
   public search = new Search();
+  private goodsFoundNum = 0;
 //  public sortElem = new Sort();
 
   public obj = {
@@ -51,12 +52,15 @@ class MainPage extends Page {
     const arr4 = this.filter.filterAmount(this.obj.minAmount, this.obj.maxAmount, arr3);
     const arr5 = this.sorting.sort(arr4, this.obj.sortType);
     const arr6 = this.search.search(arr5, this.obj.searchWorld);
+    this.goodsFoundNum = arr6.length;
     if (arr6.length === 0) {
       wrapper.append('Sorry, no such item!');
+      this.goodsFoundNum = 0
     }
     arr6.forEach((el) => {
       const card = new Product(el.num, el.name, el.amount, el.brand, el.color, el.price, el.rating);
       wrapper.append(card.buildCard());
+
     });
   }
 
@@ -73,16 +77,16 @@ class MainPage extends Page {
     this.container.append(wrapper);
 
     const productListContainer: HTMLElement = goods.querySelector('.goods__wrapper')!;
-
+  
     this.showCards(productListContainer);
-    const toyInput = filters.querySelector('#toy-machine')!;
-    const elementInput = filters.querySelector('#element')!;
-    const heroInput = filters.querySelector('#anti-hero')!;
+    const toyInput = filters.querySelector('#toy-machine')! as HTMLInputElement;
+    const elementInput = filters.querySelector('#element')! as HTMLInputElement;
+    const heroInput = filters.querySelector('#anti-hero')! as HTMLInputElement;
 
-    const decksInput = filters.querySelector('#decks')!;
-    const wheelsInput = filters.querySelector('#wheels')!;
-    const trucksInput = filters.querySelector('#trucks')!;
-    const helmetsInput = filters.querySelector('#helmets')!;
+    const decksInput = filters.querySelector('#decks')! as HTMLInputElement;
+    const wheelsInput = filters.querySelector('#wheels')! as HTMLInputElement;
+    const trucksInput = filters.querySelector('#trucks')! as HTMLInputElement;
+    const helmetsInput = filters.querySelector('#helmets')! as HTMLInputElement;
 
     const priceSlider = filters.querySelector('#priceSlider') as noUiSlider.target;
     const amountSlider = filters.querySelector('#amountSlider') as noUiSlider.target;
@@ -93,8 +97,8 @@ class MainPage extends Page {
     const searchInput = filters.querySelector('.searchbar') as HTMLInputElement;
 
     const resetBtn = wrapper.querySelector('.goods__reset-btn') as HTMLButtonElement;
-
-
+    const goodsFound = wrapper.querySelector('.good-found__num') as HTMLElement;
+    goodsFound.innerText = this.goodsFoundNum.toString()
     if (priceSlider.noUiSlider) {
       priceSlider.noUiSlider.on('update', (values) => {
         const min = values[0];
@@ -102,6 +106,7 @@ class MainPage extends Page {
         this.obj.minPrice = +min;
         this.obj.maxPrice = +max;
         this.showCards(productListContainer);
+        goodsFound.innerText = this.goodsFoundNum.toString()
       });
     }
 
@@ -112,42 +117,50 @@ class MainPage extends Page {
         this.obj.minAmount = +min;
         this.obj.maxAmount = +max;
         this.showCards(productListContainer);
+        goodsFound.innerText = this.goodsFoundNum.toString()
       });
     }
 
     decksInput.addEventListener('input', (e) => {
       this.obj.decks = (e.currentTarget! as HTMLInputElement).checked;
       this.showCards(productListContainer);
+      goodsFound.innerText = this.goodsFoundNum.toString()
     });
 
     wheelsInput.addEventListener('input', (e) => {
       this.obj.wheels = (e.currentTarget! as HTMLInputElement).checked;
       this.showCards(productListContainer);
+      goodsFound.innerText = this.goodsFoundNum.toString()
     });
 
     trucksInput.addEventListener('input', (e) => {
       this.obj.trucks = (e.currentTarget! as HTMLInputElement).checked;
       this.showCards(productListContainer);
+      goodsFound.innerText = this.goodsFoundNum.toString()
     });
 
     helmetsInput.addEventListener('input', (e) => {
       this.obj.helmets = (e.currentTarget! as HTMLInputElement).checked;
+      goodsFound.innerText = this.goodsFoundNum.toString()
       this.showCards(productListContainer);
     });
 
     elementInput.addEventListener('input', (e) => {
       this.obj.element = (e.currentTarget! as HTMLInputElement).checked;
       this.showCards(productListContainer);
+      goodsFound.innerText = this.goodsFoundNum.toString()
     });
 
     toyInput.addEventListener('input', (e) => {
       this.obj.toy = (e.currentTarget! as HTMLInputElement).checked;
       this.showCards(productListContainer);
+      goodsFound.innerText = this.goodsFoundNum.toString()
     });
 
     heroInput.addEventListener('input', (e) => {
       this.obj.hero = (e.currentTarget! as HTMLInputElement).checked;
       this.showCards(productListContainer);
+      goodsFound.innerText = this.goodsFoundNum.toString()
     });
     
     const cards = Array.from(wrapper.querySelectorAll('.card')) as HTMLElement[];
@@ -165,12 +178,14 @@ class MainPage extends Page {
       let eventTarget = event.target as HTMLSelectElement;
       this.obj.sortType = eventTarget.options[eventTarget.selectedIndex].value;
       this.showCards(productListContainer);
+      goodsFound.innerText = this.goodsFoundNum.toString()
     })
 
     searchInput.addEventListener('input', (event) => {
       const eventTarget = event.target as HTMLSelectElement;
       this.obj.searchWorld = eventTarget.value;
       this.showCards(productListContainer);
+      goodsFound.innerText = this.goodsFoundNum.toString()
     })
 
     resetBtn.addEventListener('click', () => {
@@ -190,6 +205,13 @@ class MainPage extends Page {
       this.showCards(productListContainer);
       sortSelection.value = this.obj.sortType
       searchInput.value = this.obj.searchWorld
+      heroInput.checked = this.obj.hero
+      elementInput.checked = this.obj.element
+      toyInput.checked = this.obj.toy
+      decksInput.checked =  this.obj.decks
+      wheelsInput.checked = this.obj.wheels
+      trucksInput.checked = this.obj.trucks
+      helmetsInput.checked = this.obj.helmets
     })
     return this.container;
   }
