@@ -70,6 +70,7 @@ class Product {
     cardText.append(this.createField('amount', this.amount));
 
     this.container.setAttribute('href', '#single-product-page');
+    this.container.setAttribute('id', `${this.num}`);
 
     this.container.append(cardText);
     return this.container;
