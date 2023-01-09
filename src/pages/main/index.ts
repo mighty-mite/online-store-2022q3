@@ -92,6 +92,9 @@ class MainPage extends Page {
 
     const searchInput = filters.querySelector('.searchbar') as HTMLInputElement;
 
+    const resetBtn = wrapper.querySelector('.goods__reset-btn') as HTMLButtonElement;
+
+
     if (priceSlider.noUiSlider) {
       priceSlider.noUiSlider.on('update', (values) => {
         const min = values[0];
@@ -168,6 +171,24 @@ class MainPage extends Page {
       const eventTarget = event.target as HTMLSelectElement;
       this.obj.searchWorld = eventTarget.value;
       this.showCards(productListContainer);
+    })
+
+    resetBtn.addEventListener('click', () => {
+      this.obj.element = false
+      this.obj.toy = false
+      this.obj.hero = false
+      this.obj.decks = false
+      this.obj.wheels = false
+      this.obj.trucks = false
+      this.obj.helmets = false
+      this.obj.minPrice = 20
+      this.obj.maxPrice = 80
+      this.obj.minAmount = 3
+      this.obj.maxAmount = 8
+      this.obj.sortType = 'Price ASC'
+      this.obj.searchWorld = ''
+      this.showCards(productListContainer);
+      sortSelection.value = this.obj.sortType
     })
     return this.container;
   }
