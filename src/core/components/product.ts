@@ -72,6 +72,7 @@ class Product {
     cardText.append(this.createField('rating', this.rating));
 
     this.container.setAttribute('href', '#single-product-page');
+    this.container.setAttribute('id', `${this.num}`);
 
     this.container.append(cardText);
     return this.container;

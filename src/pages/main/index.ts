@@ -147,6 +147,17 @@ class MainPage extends Page {
       this.showCards(productListContainer);
     });
     
+    const cards = Array.from(wrapper.querySelectorAll('.card')) as HTMLElement[];
+
+    cards.forEach((card) => {
+      card.addEventListener('click', (e) => {
+        const target = e.currentTarget;
+        const productChosen = (target as HTMLElement)!.id;
+        localStorage.setItem('productChosen', productChosen);
+        // console.log('get item', localStorage.getItem('productChosen'));
+      });
+    });
+
     sortSelection?.addEventListener('change', (event) =>{
       let eventTarget = event.target as HTMLSelectElement;
       this.obj.sortType = eventTarget.options[eventTarget.selectedIndex].value;
