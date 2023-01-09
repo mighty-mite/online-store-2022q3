@@ -10,6 +10,7 @@ import { data } from '../../assets/data/data';
 import Product from '../../core/components/product';
 import * as noUiSlider from '../../../node_modules/nouislider/dist/nouislider';
 import Sorting from '../../core/sorting';
+import Search from '../../core/search';
 //import Sort from '../../core/components/sort';
 
 class MainPage extends Page {
@@ -20,6 +21,7 @@ class MainPage extends Page {
 
   public filter = new Filter();
   public sorting = new Sorting();
+  public search = new Search();
 //  public sortElem = new Sort();
 
   public obj = {
@@ -34,7 +36,8 @@ class MainPage extends Page {
     maxPrice: 80,
     minAmount: 3,
     maxAmount: 8,
-    sortType: 'Price ASC'
+    sortType: 'Price ASC',
+    searchWorld: ''
   };
 
   showCards(wrapper: HTMLElement) {
@@ -47,10 +50,11 @@ class MainPage extends Page {
     const arr3 = this.filter.filterPrice(this.obj.minPrice, this.obj.maxPrice, arr2);
     const arr4 = this.filter.filterAmount(this.obj.minAmount, this.obj.maxAmount, arr3);
     const arr5 = this.sorting.sort(arr4, this.obj.sortType);
-    if (arr5.length === 0) {
+    const arr6 = this.search.search(arr5, this.obj.searchWorld);
+    if (arr6.length === 0) {
       wrapper.append('Sorry, no such item!');
     }
-    arr5.forEach((el) => {
+    arr6.forEach((el) => {
       const card = new Product(el.num, el.name, el.amount, el.brand, el.color, el.price, el.rating);
       wrapper.append(card.buildCard());
     });
@@ -85,6 +89,8 @@ class MainPage extends Page {
     // const maxPriceInput = filters.querySelector('#maxPriceInput') as HTMLInputElement;
 
     const sortSelection = wrapper.querySelector('.sort__select') as HTMLSelectElement;
+
+    const searchInput = filters.querySelector('.searchbar') as HTMLInputElement;
 
     if (priceSlider.noUiSlider) {
       priceSlider.noUiSlider.on('update', (values) => {
@@ -147,6 +153,11 @@ class MainPage extends Page {
       this.showCards(productListContainer);
     })
 
+    searchInput.addEventListener('input', (event) => {
+      const eventTarget = event.target as HTMLSelectElement;
+      this.obj.searchWorld = eventTarget.value;
+      this.showCards(productListContainer);
+    })
     return this.container;
   }
 }
