@@ -11,6 +11,7 @@ class Product {
     private color: string,
     /* private size: string, */
     private price: string,
+    private rating: string,
   ) {
     this.num = num;
     this.name = name;
@@ -20,7 +21,7 @@ class Product {
     this.color = color;
     /*  this.size = size; */
     this.price = price;
-
+    this.rating = rating;
     this.container = this.createNode('a', ['card']);
   }
 
@@ -68,6 +69,7 @@ class Product {
     cardText.append(this.createField('price', this.price));
     cardText.append(this.createField('color', this.color));
     cardText.append(this.createField('amount', this.amount));
+    cardText.append(this.createField('rating', this.rating));
 
     this.container.setAttribute('href', '#single-product-page');
     this.container.setAttribute('id', `${this.num}`);
