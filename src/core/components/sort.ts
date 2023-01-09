@@ -1,11 +1,10 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
 import Component from '../templates/component';
-// import { getFilterValues } from "../getFilterValues";
-// import { data } from "../../assets/data/data";
+
 
 class Sort extends Component {
-  static Categories = ['category', 'price', 'color', 'brand'];
+  static Categories = ['Price ASC','Price DESC', 'Rating ASC', 'Rating DESC'];
 
   // eslint-disable-next-line no-useless-constructor
   constructor(tagName: string, className: string) {
@@ -28,7 +27,7 @@ class Sort extends Component {
 
     return select;
   }
-
+  
   render() {
     this.component.append(this.createSelect());
     return this.component;

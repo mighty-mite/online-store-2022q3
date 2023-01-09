@@ -26,6 +26,7 @@ export default class ProductList {
         data[i].brand,
         data[i].color,
         data[i].price,
+        data[i].rating,
       );
       res.push(this.card);
       // this.container.append(this.card.buildCard());
