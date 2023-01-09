@@ -189,6 +189,7 @@ class MainPage extends Page {
       this.obj.searchWorld = ''
       this.showCards(productListContainer);
       sortSelection.value = this.obj.sortType
+      searchInput.value = this.obj.searchWorld
     })
     return this.container;
   }
