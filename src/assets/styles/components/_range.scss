@@ -1,0 +1,167 @@
+.range {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.range__wrapper {
+	position: relative;
+	min-height: 30px;
+}
+
+// NOUISLIDER
+
+.noUi-connects,
+.noUi-base {
+	height: 6px;
+}
+
+.noUi-tooltip {
+	width: 28px;
+	height: 24px;
+	background: #252b42;
+	border-radius: 2px;
+	color: white;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+.noUi-handle-upper {
+	width: 13px;
+	height: 13px;
+	cursor: pointer;
+
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.range__slider {
+	margin-bottom: 30px;
+	cursor: pointer;
+	height: 6px;
+}
+
+// Ranges
+
+.range__input {
+	-webkit-appearance: none;
+	appearance: none;
+	height: 6px;
+	width: 100%;
+	position: absolute;
+	background-color: $bkg-range-inactive;
+	pointer-events: none;
+	border-radius: 6px;
+}
+
+.range__from,
+.range__from--amount {
+	height: 0;
+	z-index: 1;
+}
+
+//		Ручки
+
+.range__input {
+	&::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		pointer-events: all;
+		width: 13px;
+		height: 13px;
+		background-color: $range-active;
+		border-radius: 50%;
+		cursor: pointer;
+		position: relative;
+	}
+}
+
+.range__input {
+	&::-moz-range-thumb {
+		// -webkit-appearance: none;
+		pointer-events: all;
+		width: 13px;
+		height: 13px;
+		background-color: $range-active;
+		border-radius: 50%;
+		box-shadow: 0 0 0 1px #c6c6c6;
+		cursor: pointer;
+	}
+}
+
+.range__from,
+.range__from--amount {
+	&::-webkit-slider-thumb {
+		position: relative;
+		bottom: -3px;
+	}
+}
+
+.range__to,
+.range__to--amount {
+	&::-webkit-slider-thumb {
+		position: relative;
+		bottom: 0px;
+	}
+}
+
+//		Окошки с цифрами
+
+.range__control {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	font-size: 24px;
+	color: #635a5a;
+}
+
+.range__control-from,
+.range__control-from--amount,
+.range__control-to,
+.range__control-to--amount {
+	color: #8a8383;
+	border: 1px solid #e0e0e0;
+	border-radius: 5px;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+	width: 129px;
+	height: 58px;
+
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 16px;
+	color: $text-dark;
+	text-align: center;
+
+	&:focus {
+		outline: 1px solid $link;
+	}
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	opacity: 1;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none; // removes arrows in nums
+	margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.range__control-from,
+.range__control-from--amount {
+	margin-right: 17px;
+}
+
+@media (max-width: 800px) {
+	.range__control-from,
+	.range__control-from--amount,
+	.range__control-to,
+	.range__control-to--amount {
+		width: 100px;
+		height: 30px;
+	}
+
+	.range__control {
+		justify-content: center;
+	}
+}

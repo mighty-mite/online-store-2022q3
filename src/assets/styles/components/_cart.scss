@@ -1,0 +1,119 @@
+.cart__center {
+	margin: 0 auto;
+	max-width: 92%;
+	padding: 20px 0;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.cart__pagination {
+	display: flex;
+	align-items: center;
+	justify-items: center;
+	width: 100%;
+	padding-bottom: 20px;
+}
+
+.cart__pagination-text {
+	font-weight: 700;
+	margin-right: 10px;
+}
+
+.cart__pagination-input {
+	padding: 17px 20px;
+	width: 60px;
+	height: 50px;
+
+	background: $white;
+	border: 1px solid #dcdcdc;
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	margin-right: auto;
+	&:focus {
+		outline: 1px solid $link;
+	}
+}
+
+.cart__pagination-btn {
+	width: 50px;
+	height: 40px;
+	background: #ffffff;
+	border: 1px solid $black;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.left-btn {
+	background-image: url("./../icons/arrow-left.svg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	margin-right: 10px;
+}
+
+.right-btn {
+	background-image: url("./../icons/arrow-right.svg");
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.cart__pagination-page {
+	color: $black;
+	font-weight: 700;
+	margin-right: 10px;
+}
+
+.cart__head {
+	display: grid;
+	grid-template-columns: 40% 18% 18% 18% auto;
+	justify-items: center;
+
+	padding-bottom: 20px;
+	border-bottom: 1px solid $second-text;
+}
+
+.cart__controls {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.cart__go-shopping-btn {
+	height: 40px;
+	left: 942px;
+	top: 349px;
+	cursor: pointer;
+	background: $link;
+	border: none;
+	padding: 16px 46px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $white;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.cart__clear-btn {
+	padding: 16px 26px;
+	height: 40px;
+	left: 942px;
+	top: 349px;
+	cursor: pointer;
+	background: $black;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $white;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.cart__total {
+	align-self: flex-end;
+}
